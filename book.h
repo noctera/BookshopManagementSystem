@@ -3,6 +3,11 @@
 #include <string>
 
 class Book {
+    public:
+    Book (std::string name, std::string author, int numberOfCopies) : name (name), author (author), numberOfCopies (numberOfCopies) {
+    }
+
+    private:
     std::string name;
     std::string author;
     int numberOfCopies;
