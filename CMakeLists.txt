@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(BookshopManagementSystem)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(SOURCE main.cpp)
+set(SOURCE main.cpp bookshop.h bookshop.cpp book.h)
 add_executable(${PROJECT_NAME} ${SOURCE})
 set(CMAKE_CXX_STANDARD 17)
 set_property(TARGET BookshopManagementSystem
