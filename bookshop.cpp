@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-
+// This funktion loads the data from a txt file and stores it into the vector
 void Bookshop::load () {
     std::ifstream inputFile ("file.txt");
     if (!(inputFile.is_open ())) {
