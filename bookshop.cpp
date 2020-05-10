@@ -22,6 +22,20 @@ void Bookshop::load () {
             books.push_back (Book (name, author, numberOfCopies_int));
         }
     }
+    inputFile.close ();
+}
+
+void Bookshop::save () {
+    std::ofstream outputFile ("file.txt");
+    if (!(outputFile.is_open ())) {
+        std::cout << "Error while opening the file" << std::endl;
+    } else {
+        for (auto it = books.begin (); it != books.end (); ++it) {
+            outputFile << it->name << std::endl << it->author << std::endl << it->numberOfCopies << std::endl;
+        }
+        outputFile << "#" << std::endl;
+    }
+    outputFile.close ();
 }
 // funktion is here to convert the string variable in Bookshop::load to an int, because std::getline does not support int
 template <class T> T Bookshop::fromString (const std::string& s) {
