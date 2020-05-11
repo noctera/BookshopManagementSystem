@@ -1,13 +1,15 @@
 #include "bookshop.h"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 // This funktion loads the data from a txt file and stores it into the vector
 void Bookshop::load () {
     std::ifstream inputFile ("file.txt");
     if (!(inputFile.is_open ())) {
         std::cout << "Error while opening the file" << std::endl;
-    } else {
+    }
+    else {
         while (inputFile) {
             std::string name;
             std::getline (inputFile, name);
@@ -29,13 +31,34 @@ void Bookshop::save () {
     std::ofstream outputFile ("file.txt");
     if (!(outputFile.is_open ())) {
         std::cout << "Error while opening the file" << std::endl;
-    } else {
+    }
+    else {
         for (auto it = books.begin (); it != books.end (); ++it) {
             outputFile << it->name << std::endl << it->author << std::endl << it->numberOfCopies << std::endl;
         }
         outputFile << "#" << std::endl;
     }
     outputFile.close ();
+}
+
+void Bookshop::addBookRecords () {
+    std::cout << "This is a test" << std::endl;
+}
+
+void Bookshop::buyBook () {
+}
+
+void Bookshop::showBookRecords () {
+}
+
+int Bookshop::checkAvailability () {
+    return 0;
+}
+
+void Bookshop::modifyBookRecords () {
+}
+
+void Bookshop::deleteBookRecords () {
 }
 // funktion is here to convert the string variable in Bookshop::load to an int, because std::getline does not support int
 template <class T> T Bookshop::fromString (const std::string& s) {
