@@ -8,7 +8,7 @@ class Book {
     }
     std::string name;
     std::string author;
-    int numberOfCopies;
+    unsigned int numberOfCopies;
 };
 
 #endif

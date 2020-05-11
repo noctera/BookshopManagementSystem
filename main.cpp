@@ -4,6 +4,8 @@
 #include <limits>
 
 int main () {
+    Bookshop bookshop;
+    bookshop.load ();
     while (true) {
         std::cout << "----------------------------" << std::endl << "|Bookshop Management System|" << std::endl << "----------------------------" << std::endl;
         std::cout << "1. Add book" << std::endl
@@ -25,10 +27,8 @@ int main () {
         }
         std::system ("clear");
         // executing the methods
-        Bookshop bookshop;
         if (input == 1) {
             bookshop.addBookRecords ();
-            std::cin.ignore (std::numeric_limits<int>::max (), '\n');
             std::cin.get ();
             std::system ("clear");
         }
@@ -60,4 +60,5 @@ int main () {
             break;
         }
     }
+    bookshop.save ();
 }
