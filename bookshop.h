@@ -9,8 +9,9 @@ class Bookshop {
     void load ();
     void save ();
     void addBookRecords ();
+    void buyBook ();
     void showBookRecords ();
-    bool checkAvailability ();
+    int checkAvailability ();
     void modifyBookRecords ();
     void deleteBookRecords ();
     template <class T> T fromString (const std::string& s);
