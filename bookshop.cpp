@@ -42,7 +42,21 @@ void Bookshop::save () {
 }
 
 void Bookshop::addBookRecords () {
-    std::cout << "This is a test" << std::endl;
+    std::cout << "You want to add a new Book" << std::endl;
+    std::cout << "Name: ";
+    std::string name;
+    std::cin.ignore (std::numeric_limits<int>::max (), '\n');
+    std::getline (std::cin, name);
+    std::cout << "Author: ";
+    std::string author;
+    std::getline (std::cin, author);
+    std::cout << "Number of Copies: ";
+    std::string numberOfCopies;
+    std::getline (std::cin, numberOfCopies);
+    unsigned int numberOfCopies_int = fromString<unsigned int> (numberOfCopies);
+
+    books.push_back (Book (name, author, numberOfCopies_int));
+    std::cout << "Information saved" << std::endl;
 }
 
 void Bookshop::buyBook () {
