@@ -14,12 +14,15 @@ int main () {
                   << "6. Close program" << std::endl;
         std::cout << "input: ";
         int input;
-        std::cin >> input;
-        while (input < 1 || input > 6) {
-            std::cout << "Wrong input, re-enter: ";
+        while (true) {
             std::cin >> input;
+            if (input < 1 || input > 6) {
+                std::cout << "Wrong input, re-enter: ";
+            }
+            else {
+                break;
+            }
         }
-        char c;
         std::system ("clear");
         // executing the methods
         Bookshop bookshop;
