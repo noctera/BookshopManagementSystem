@@ -1,8 +1,10 @@
 #include "bookshop.h"
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
+
 
 void Bookshop::load () {
     std::ifstream inputFile ("file.txt");
@@ -63,6 +65,23 @@ void Bookshop::buyBook () {
 }
 
 void Bookshop::showBookRecords () {
+
+    std::cout << "You want to search for information about a book" << std::endl;
+    std::cout << "Book name: ";
+    std::string searchName;
+    std::cin.ignore (std::numeric_limits<int>::max (), '\n');
+    std::getline (std::cin, searchName);
+    auto it = std::find_if (books.begin (), books.end (), [&] (const auto& book) { return book.name == searchName; });
+    if (it != books.end ()) {
+        std::cout << "------------------------------------------" << std::endl;
+        std::cout << "Name:             " << it->name << std::endl;
+        std::cout << "Author:           " << it->author << std::endl;
+        std::cout << "Number of copies: " << it->numberOfCopies << std::endl;
+        std::cout << "------------------------------------------" << std::endl;
+    }
+    else {
+        std::cout << "The book is not known" << std::endl;
+    }
 }
 
 int Bookshop::checkAvailability () {
