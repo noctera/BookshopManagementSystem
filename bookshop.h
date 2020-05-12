@@ -11,7 +11,7 @@ class Bookshop {
     void addBookRecords ();
     void buyBook ();
     void showBookRecords ();
-    int checkAvailability ();
+    const bool checkAvailability (std::string& name);
     void modifyBookRecords ();
     void deleteBookRecords ();
     template <class T> T fromString (const std::string& s);

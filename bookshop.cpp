@@ -6,7 +6,6 @@
 #include <string>
 
 
-
 // This funktion loads the data from a txt file and stores it into the vector
 
 void Bookshop::load () {
@@ -64,6 +63,24 @@ void Bookshop::addBookRecords () {
 }
 
 void Bookshop::buyBook () {
+    std::cout << "You want to buy a book" << std::endl;
+    std::cout << "Book name: ";
+    std::string buyBook;
+    std::getline (std::cin, buyBook);
+    bool is_available = checkAvailability (buyBook);
+    if (is_available) {
+        auto it = std::find_if (books.begin (), books.end (), [&] (const auto& book) { return book.name == buyBook; });
+        if (it != books.end ()) {
+            it->numberOfCopies -= 1;
+            std::cout << "Order was successful" << std::endl;
+        }
+        else {
+            std::cout << "We do not have this book" << std::endl;
+        }
+    }
+    else {
+        std::cout << "This book is out of order" << std::endl;
+    }
 }
 
 void Bookshop::showBookRecords () {
@@ -85,8 +102,19 @@ void Bookshop::showBookRecords () {
     }
 }
 
-int Bookshop::checkAvailability () {
-    return 0;
+const bool Bookshop::checkAvailability (std::string& name) {
+    auto it = std::find_if (books.begin (), books.end (), [&] (const auto& book) { return book.name == name; });
+    if (it != books.end ()) {
+        if (it->numberOfCopies == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    else {
+        return false;
+    }
 }
 
 void Bookshop::modifyBookRecords () {
