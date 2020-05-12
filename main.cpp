@@ -18,6 +18,7 @@ int main () {
         int input;
         while (true) {
             std::cin >> input;
+            std::cin.ignore (std::numeric_limits<std::streamsize>::max (), '\n');
             if (input < 1 || input > 6) {
                 std::cout << "Wrong input, re-enter: ";
             }

@@ -50,7 +50,6 @@ void Bookshop::addBookRecords () {
     std::cout << "You want to add a new Book" << std::endl;
     std::cout << "Name: ";
     std::string name;
-    std::cin.ignore (std::numeric_limits<int>::max (), '\n');
     std::getline (std::cin, name);
     std::cout << "Author: ";
     std::string author;
@@ -72,7 +71,6 @@ void Bookshop::showBookRecords () {
     std::cout << "You want to search for information about a book" << std::endl;
     std::cout << "Book name: ";
     std::string searchName;
-    std::cin.ignore (std::numeric_limits<int>::max (), '\n');
     std::getline (std::cin, searchName);
     auto it = std::find_if (books.begin (), books.end (), [&] (const auto& book) { return book.name == searchName; });
     if (it != books.end ()) {
@@ -95,6 +93,25 @@ void Bookshop::modifyBookRecords () {
 }
 
 void Bookshop::deleteBookRecords () {
+
+    std::cout << "You want to delete a book" << std::endl;
+    std::cout << "Book name: ";
+    std::string searchName;
+    std::getline (std::cin, searchName);
+    std::cout << "Write \"Delete\" to confirm" << std::endl;
+    std::string confirmation;
+    std::cin >> confirmation;
+    std::cin.ignore (std::numeric_limits<std::streamsize>::max (), '\n');
+    if (confirmation == "Delete") {
+        auto it = std::find_if (books.begin (), books.end (), [&] (const auto& book) { return book.name == searchName; });
+        if (it != books.end ()) {
+            books.erase (it);
+        }
+        std::cout << "Your book was deleted" << std::endl;
+    }
+    else {
+        std::cout << "Deletion has been canceled" << std::endl;
+    }
 }
 // funktion is here to convert the string variable in Bookshop::load to an int, because std::getline does not support int
 template <class T> T Bookshop::fromString (const std::string& s) {
