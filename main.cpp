@@ -34,25 +34,21 @@ int main () {
         }
         else if (input == 2) {
             bookshop.buyBook ();
-            std::cin.ignore (std::numeric_limits<int>::max (), '\n');
             std::cin.get ();
             std::system ("clear");
         }
         else if (input == 3) {
             bookshop.showBookRecords ();
-            std::cin.ignore (std::numeric_limits<int>::max (), '\n');
             std::cin.get ();
             std::system ("clear");
         }
         else if (input == 4) {
             bookshop.modifyBookRecords ();
-            std::cin.ignore (std::numeric_limits<int>::max (), '\n');
             std::cin.get ();
             std::system ("clear");
         }
         else if (input == 5) {
             bookshop.deleteBookRecords ();
-            std::cin.ignore (std::numeric_limits<int>::max (), '\n');
             std::cin.get ();
             std::system ("clear");
         }
