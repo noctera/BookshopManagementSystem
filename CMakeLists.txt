@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 project(BookshopManagementSystem)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(SOURCE main.cpp bookshop.h bookshop.cpp book.h)
+set(SOURCE main.cpp bookshop.h bookshop.cpp database.h database.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE})
 set(CMAKE_CXX_STANDARD 17)
 set_property(TARGET BookshopManagementSystem
     PROPERTY CXX_STANDARD 17)
+    target_link_libraries(BookshopManagementSystem LINK_PUBLIC sqlite3)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

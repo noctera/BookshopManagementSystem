@@ -4,9 +4,10 @@
 #include <limits>
 
 int main () {
-    Bookshop bookshop;
-    bookshop.load ();
+    Bookshop bookshop ("books.db");
+    bookshop.createTable ();
     while (true) {
+
         std::cout << "----------------------------" << std::endl << "|Bookshop Management System|" << std::endl << "----------------------------" << std::endl;
         std::cout << "1. Add book" << std::endl
                   << "2. Buy book" << std::endl
@@ -57,5 +58,4 @@ int main () {
             break;
         }
     }
-    bookshop.save ();
 }
