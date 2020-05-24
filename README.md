@@ -1,6 +1,6 @@
 # BookshopManagementSystem
 
-This is an open-source Bookshop Management System.
+This is an open-source Bookshop Management System, free to use for everyone.
 
 Functions:
 -Add, modify, delete books records
